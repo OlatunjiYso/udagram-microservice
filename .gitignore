@@ -43,3 +43,5 @@ venv/
 
 #Environmental variable
 set_env.sh
+aws-secret.yaml
+env-secret.yaml
