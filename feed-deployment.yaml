@@ -5,7 +5,7 @@ metadata:
   labels:
     app: feed
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: feed
@@ -19,3 +19,6 @@ spec:
         image: olatunjiyso/udagram-api-feed
         ports:
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: udagram-env-variable

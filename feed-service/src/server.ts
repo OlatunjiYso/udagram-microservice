@@ -18,7 +18,6 @@ import { V0_FEED_MODELS } from './controllers/v0/model.index';
     await sequelize.sync();
   } catch(err) {
     console.error(`Database connection Error::: ${(err as Error).message}`)
-    console.error(`Database connection Error::: ${(err as Error).stack}`)
   }
   
 

@@ -19,3 +19,6 @@ spec:
         image: olatunjiyso/udagram-api-user
         ports:
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: udagram-env-variable
