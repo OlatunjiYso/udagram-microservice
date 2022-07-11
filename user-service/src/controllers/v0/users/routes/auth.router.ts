@@ -66,16 +66,19 @@ router.post('/login', async (req: Request, res: Response) => {
 
   const user = await User.findByPk(email);
   if (!user) {
+    console.log(`Failed login attempt due to unregistered email :  ${email}`)
     return res.status(401).send({auth: false, message: 'User was not found..'});
   }
 
   const authValid = await comparePasswords(password, user.passwordHash);
 
   if (!authValid) {
+    console.log(`Failed login attempt due to incorrect password but registered Email :  ${email}`)
     return res.status(401).send({auth: false, message: 'Password was invalid.'});
   }
 
   const jwt = generateJWT(user);
+  console.log(`Successful login by user with Email :  ${email}`)
   res.status(200).send({auth: true, token: jwt, user: user.short()});
 });
 
